@@ -195,6 +195,7 @@ private struct FileCandidate {
     }
 
     var identity: String {
-        url.standardizedFileURL.path
+        let volumeUUID = (try? url.resourceValues(forKeys: [.volumeUUIDStringKey]))?.volumeUUIDString
+        return FileIdentity.identity(documentID: metadata.documentID, volumeUUID: volumeUUID, path: url.standardizedFileURL.path)
     }
 }

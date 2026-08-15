@@ -8,9 +8,24 @@ struct FileMetadata: Identifiable, Equatable, Sendable {
     let contentType: String?
     let modificationDate: Date?
     let lastUsedDate: Date?
+    /// Document identifier from Spotlight metadata. Nil when the volume
+    /// does not expose one; identity then falls back to the file path.
+    let documentID: Int?
 
     var id: String {
         url.standardizedFileURL.path
+    }
+}
+
+enum FileIdentity {
+    /// Combines the volume UUID and document identifiers into a durable
+    /// candidate identity that follows a same-volume rename. Falls back
+    /// to the standardized path when either value is unavailable.
+    static func identity(documentID: Int?, volumeUUID: String?, path: String) -> String {
+        if let documentID, documentID > 0, let volumeUUID, !volumeUUID.isEmpty {
+            return "v\(volumeUUID):d\(documentID)"
+        }
+        return path
     }
 }
 
@@ -104,7 +119,8 @@ final class FileMetadataService: NSObject, NSMetadataQueryDelegate {
             displayName: displayName,
             contentType: contentType,
             modificationDate: modificationDate,
-            lastUsedDate: lastUsedDate
+            lastUsedDate: lastUsedDate,
+            documentID: (item.value(forAttribute: "kMDItemDocumentIdentifier") as? NSNumber)?.intValue
         )
     }
 

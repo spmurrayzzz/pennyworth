@@ -108,6 +108,21 @@ final class RegressionTests: XCTestCase {
         XCTAssertEqual(result.subtitle, "www.google.com")
     }
 
+    func testFileIdentityCombinesVolumeAndDocumentIdentifiers() {
+        XCTAssertEqual(
+            FileIdentity.identity(documentID: 33, volumeUUID: "ABC-DEF", path: "/Users/x/Documents/a.txt"),
+            "vABC-DEF:d33"
+        )
+    }
+
+    func testFileIdentityFallsBackToPathWhenEitherValueIsMissing() {
+        let path = "/Users/x/Documents/a.txt"
+        XCTAssertEqual(FileIdentity.identity(documentID: nil, volumeUUID: "ABC-DEF", path: path), path)
+        XCTAssertEqual(FileIdentity.identity(documentID: 0, volumeUUID: "ABC-DEF", path: path), path)
+        XCTAssertEqual(FileIdentity.identity(documentID: 33, volumeUUID: "", path: path), path)
+        XCTAssertEqual(FileIdentity.identity(documentID: 33, volumeUUID: "ABC-DEF", path: path).isEmpty, false)
+    }
+
     func testQueryPipelineLatencyStaysBelowBudget() {
         let names = (0..<220).map { index in
             "ApplicationName" + String(format: "%02d", index)
