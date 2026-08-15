@@ -29,6 +29,15 @@ enum FileIdentity {
     }
 }
 
+extension FileMetadata {
+    /// A record is stale when its modification date is in the future
+    /// past a small skew, which indicates corrupt or migrated metadata.
+    func isStale(now: Date = Date()) -> Bool {
+        guard let modificationDate else { return false }
+        return modificationDate.timeIntervalSince(now) > 300
+    }
+}
+
 @MainActor
 final class FileMetadataService: NSObject, NSMetadataQueryDelegate {
     private static let snapshotLimitExclusive = 6_000

@@ -115,6 +115,9 @@ final class FileProvider: SearchProvider {
     }
 
     private func qualifies(_ metadata: FileMetadata) -> Bool {
+        if metadata.isStale() {
+            return false
+        }
         let info = resourceInfo(for: metadata.url)
         guard info.exists else { return false }
         if info.isApplicationBundle || info.isPackage {

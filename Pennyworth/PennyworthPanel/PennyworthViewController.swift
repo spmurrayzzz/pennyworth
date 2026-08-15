@@ -158,7 +158,16 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
         } else {
             selectedIndex = -1
         }
-        hintLabel.stringValue = results.isEmpty ? "Press ⌘1-9 to run a result, ⌘ to copy" : ""
+        if results.isEmpty {
+            switch coordinator?.lastParsed?.mode {
+            case .fileOpen, .fileFind:
+                hintLabel.stringValue = "No matching files. Spotlight may be disabled; check System Settings."
+            default:
+                hintLabel.stringValue = "No results."
+            }
+        } else {
+            hintLabel.stringValue = ""
+        }
         tableView.reloadData()
     }
 
@@ -365,10 +374,20 @@ default:
         onRequestDismiss?()
     }
 
+    private var lastRecordedEvent: (identity: String, at: Date)?
+
     private func recordSelection(result: SearchResult, actionID: String) {
         if result.kind == .url { return }
         if result.kind == .calculation { return }
         guard let parsed = coordinator?.lastParsed else { return }
+        let identity = "\(result.providerID)|\(result.candidateID)|\(parsed.mode.rawValue)|\(actionID)"
+        if let last = lastRecordedEvent,
+            last.identity == identity,
+            Date().timeIntervalSince(last.at) < 1.5
+        {
+            return
+        }
+        lastRecordedEvent = (identity, Date())
         let event = SelectionEvent(
             providerID: result.providerID,
             candidateID: result.candidateID,

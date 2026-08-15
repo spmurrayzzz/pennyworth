@@ -123,6 +123,25 @@ final class RegressionTests: XCTestCase {
         XCTAssertEqual(FileIdentity.identity(documentID: 33, volumeUUID: "ABC-DEF", path: path).isEmpty, false)
     }
 
+    func testStaleFileMetadataIsRejected() {
+        let url = URL(fileURLWithPath: "/tmp/stale-example.txt")
+        let recent = FileMetadata(
+            url: url, fileName: "a", displayName: "a", contentType: nil,
+            modificationDate: Date().addingTimeInterval(-60), lastUsedDate: nil, documentID: nil
+        )
+        let futureDated = FileMetadata(
+            url: url, fileName: "b", displayName: "b", contentType: nil,
+            modificationDate: Date().addingTimeInterval(600), lastUsedDate: nil, documentID: nil
+        )
+        let undated = FileMetadata(
+            url: url, fileName: "c", displayName: "c", contentType: nil,
+            modificationDate: nil, lastUsedDate: nil, documentID: nil
+        )
+        XCTAssertFalse(recent.isStale())
+        XCTAssertTrue(futureDated.isStale())
+        XCTAssertFalse(undated.isStale())
+    }
+
     func testQueryPipelineLatencyStaysBelowBudget() {
         let names = (0..<220).map { index in
             "ApplicationName" + String(format: "%02d", index)
