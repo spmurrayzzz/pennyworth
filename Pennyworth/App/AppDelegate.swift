@@ -8,6 +8,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let appController = AppController()
         appController.activate()
         controller = appController
+
+        if ProcessInfo.processInfo.environment["PENNYWORTH_SMOKE_PANEL"] == "1" {
+            Task { @MainActor in
+                try? await Task.sleep(for: .milliseconds(800))
+                appController.togglePennyworth()
+            }
+        }
     }
 
     func applicationWillTerminate(_ notification: Notification) {

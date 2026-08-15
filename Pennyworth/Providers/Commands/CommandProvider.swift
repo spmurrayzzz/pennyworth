@@ -38,7 +38,7 @@ final class CommandProvider: SearchProvider {
             detail: "Start the screen saver",
             path: "/System/Library/CoreServices/ScreenSaverEngine.app",
             aliases: ["start screen saver", "screen saver", "screen saver engine"],
-            fallbackBundleID: "com.apple.screensaver"
+            fallbackBundleID: "com.apple.ScreenSaver.Engine"
         ),
     ]
 

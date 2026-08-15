@@ -76,7 +76,7 @@ final class AppController {
         pennyworthWindow.hide()
     }
 
-    private func togglePennyworth() {
+    func togglePennyworth() {
         pennyworthWindow.toggle()
     }
 
