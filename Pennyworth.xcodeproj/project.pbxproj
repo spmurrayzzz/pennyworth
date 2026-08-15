@@ -1,0 +1,867 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		014A3964A0DF59886B19F077 /* HotKeyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122891A28AF1D8E7EAF2D7C7 /* HotKeyController.swift */; };
+		015AF715E2029F0510ACD714 /* DatabaseMigration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B31CD0AF278B49D1BC472E9 /* DatabaseMigration.swift */; };
+		0344CF185D35C7CD1E51CA85 /* ApplicationScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD6FA5D48BEC18FB28E2E5CE /* ApplicationScanner.swift */; };
+		0DE50B8DD28CF8E364C30B2D /* StatusItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C4EE54AA62B05D195FD95EE /* StatusItemController.swift */; };
+		0E65FD765630B22E7EDAE521 /* PennyworthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B27AC072C6D2DC74717E363 /* PennyworthViewController.swift */; };
+		120A413D13B2F0172631946D /* FileProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE82833E8B84C54352A2DAF /* FileProvider.swift */; };
+		185AB01539553B964FBD242A /* ResultRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D9D4B5B36F73F25F94813F /* ResultRowView.swift */; };
+		1DABDE5AA4C6AE1839271571 /* PennyworthPanel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFEECA466C0F7506C379E897 /* PennyworthPanel.swift */; };
+		203FABE2494933F2CBE14A20 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 5786239C238681FF0C088ED3 /* KeyboardShortcuts */; };
+		240D4BBB742251975EA51644 /* FuzzyMatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82665AA3A918FA937F307564 /* FuzzyMatcher.swift */; };
+		26193D25F07E23A15086CF97 /* CommandProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = E934E368EA6378F9B50597C0 /* CommandProvider.swift */; };
+		2809F1C2E71CA4CB00CDA917 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C0D7B6BF4C9B10E4EF7F4C3 /* SettingsModel.swift */; };
+		2FE570707681A5BB8C7A9D17 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55FB1C7A61F4284408A4FB8B /* AppDelegate.swift */; };
+		36986EF39C917D200EC1A966 /* PennyworthWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD7E8ECEADB11655062E7D55 /* PennyworthWindowController.swift */; };
+		3C1D285D4E10EF56E8904846 /* SettingsWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AD9E9B89AF61075CC53D7FB /* SettingsWindowController.swift */; };
+		3CF89AF5F3D116249D862735 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82FBD5EE849F75118ED499B /* Assets.xcassets */; };
+		3D547AA3BB990315E28BA706 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F333EC47FAA6010F09E8D398 /* AppSettings.swift */; };
+		4545344D39E3C6D267CC254F /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB76ED0DD2B3475F207FF5F7 /* Main.swift */; };
+		499629E5EAE8A4B0E33D81C0 /* QueryParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 383437DA52C48FB744F17099 /* QueryParser.swift */; };
+		515E234844D6B51B11E28B42 /* CalculatorProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2D3A80FD299351DEAC76E7 /* CalculatorProvider.swift */; };
+		61DA20EAF9CF331244D8E3F3 /* FileMetadataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9800DA88F297DC2CEF2E7325 /* FileMetadataService.swift */; };
+		68954659EB63A8A3B3E13924 /* ApplicationIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B50E1496971F27B1B749AE2 /* ApplicationIndex.swift */; };
+		6C223667C8D737D31FA88932 /* URLPolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76F862E85A5AAF14B24A5FCE /* URLPolicyTests.swift */; };
+		703C2AA0D688703B651562F8 /* DatabaseStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8479063A56CF73A129006B6 /* DatabaseStore.swift */; };
+		749E60418AF6840F8F529713 /* LoginItemController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70DD30E8C8256F25DE175BE /* LoginItemController.swift */; };
+		8148226C4125382E12A78AF8 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50A12501D6291C427566CD0A /* SearchResult.swift */; };
+		814950E8A42B123C6DF06510 /* JudgeCorpusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120FF32502E72A364FC92F7C /* JudgeCorpusTests.swift */; };
+		869655E3C29B2482AE4A6152 /* UnitConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDC923EB9D9869782197340 /* UnitConverter.swift */; };
+		874C677C96660FDDFFBADA1C /* ApplicationProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 536C915B46E538C432423460 /* ApplicationProvider.swift */; };
+		9552AC5482B5CC0F4DBE11E3 /* RankingWeights.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAEBEBCD390BF581FF97E24 /* RankingWeights.swift */; };
+		97B99AE0760C9E723B1C581E /* URLPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = D54D0837E2378331160A1E1E /* URLPolicy.swift */; };
+		9ABA1EA6859585BA64DB2788 /* ActionExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69CF53D3A0CBDC6B14D680E2 /* ActionExecutor.swift */; };
+		9B0FA906419736A4761B355C /* FuzzyMatcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFF824E705F8AA5A5C8B95CF /* FuzzyMatcherTests.swift */; };
+		AA526E333C733876524FA1C8 /* IconRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA22F25E13D702FCBD454733 /* IconRepository.swift */; };
+		B94C577A3A5A087F963EF07E /* QueryParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35D5C54EBE2EE4E8C155A263 /* QueryParserTests.swift */; };
+		BE3A30048C03D7E80AC2CC74 /* AppController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E7B8F5CA949DB865C99A97 /* AppController.swift */; };
+		BE5BD1C95F09C8B291216E1C /* CalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACAB9E30AC31A415991A00AD /* CalculatorTests.swift */; };
+		BFAE002A3E7165D7710121AE /* DefaultWebSearches.json in Resources */ = {isa = PBXBuildFile; fileRef = A6ED9882A68DB53E463A5EC6 /* DefaultWebSearches.json */; };
+		C24D17B90F2F7A526225376E /* WebSearchRegistry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66D3982ACC6C6BE57E3464E1 /* WebSearchRegistry.swift */; };
+		C595C7B066A8C68437D6C5E4 /* WebProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 545433DCC582F19BE59D4A69 /* WebProvider.swift */; };
+		CC33C9D96C3FBBFC5FA3728C /* ExpressionParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B98F12218CC60A2A1D77DBF /* ExpressionParser.swift */; };
+		CE32210B80E244D66E583F88 /* SearchQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2946A59F84D4ADEAB34C40AC /* SearchQuery.swift */; };
+		D9C9D200A96E692F7F47485F /* RankingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BAB24CE5F4408F8B42CFA2C4 /* RankingTests.swift */; };
+		DE1DC92A5C15DDC2E3B9EC5A /* SelectionEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0BC7E6C8688125A26A131 /* SelectionEvent.swift */; };
+		E0AD678CC0C65F4E2358233B /* PennyworthUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9939537907910E7C2F4BFB4 /* PennyworthUITests.swift */; };
+		E42F21934E6915010D5086D3 /* SearchCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCD29D9195CEED1CC83CD37B /* SearchCoordinator.swift */; };
+		E8CC35FCFF2CD1E2A085F243 /* SelectionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7DD31D96CCE8F15B90B245D3 /* SelectionStore.swift */; };
+		EA99C1F4ABDE6FD526918EC4 /* TemplateURLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7ADE823C7AFC2DDCDAB4CC /* TemplateURLTests.swift */; };
+		F1B086D517F85E1526F441F7 /* RankingEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A74DEED048383FA86967A58 /* RankingEngine.swift */; };
+		F2D43034CB2A5D17FD7CC92B /* SearchProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042C9E693428198FB111DDBA /* SearchProvider.swift */; };
+		F80010B5788A52F2F3971058 /* PerformanceSignposts.swift in Sources */ = {isa = PBXBuildFile; fileRef = E71F78109F2695F18A0662A9 /* PerformanceSignposts.swift */; };
+		F9D293378C5491A98E7E6A48 /* QuickLookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5478A30D2D36BA14D0E2CAB /* QuickLookController.swift */; };
+		F9E7D66F439C3EA43979643A /* ExpressionLexer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98533B0DF05B6E5FFC4DA1D /* ExpressionLexer.swift */; };
+		FC366A48824F3F6645DCA3C5 /* ResultAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F865D94E27FC6BE5C2239AD /* ResultAction.swift */; };
+		FFA7E130F924417AEF45C134 /* WebSearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42E842A578679C107C769E1 /* WebSearch.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		191889828AE1E04AFC2997AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4F391DA61B0612FDBF03A95 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F9F89B36FDDF503539E2C95;
+			remoteInfo = Pennyworth;
+		};
+		89F2DA33F8125F5B91E67F12 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E4F391DA61B0612FDBF03A95 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6F9F89B36FDDF503539E2C95;
+			remoteInfo = Pennyworth;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		042C9E693428198FB111DDBA /* SearchProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchProvider.swift; sourceTree = "<group>"; };
+		0B98F12218CC60A2A1D77DBF /* ExpressionParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionParser.swift; sourceTree = "<group>"; };
+		120FF32502E72A364FC92F7C /* JudgeCorpusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JudgeCorpusTests.swift; sourceTree = "<group>"; };
+		122891A28AF1D8E7EAF2D7C7 /* HotKeyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotKeyController.swift; sourceTree = "<group>"; };
+		1F7ADE823C7AFC2DDCDAB4CC /* TemplateURLTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TemplateURLTests.swift; sourceTree = "<group>"; };
+		2946A59F84D4ADEAB34C40AC /* SearchQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchQuery.swift; sourceTree = "<group>"; };
+		2AD9E9B89AF61075CC53D7FB /* SettingsWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsWindowController.swift; sourceTree = "<group>"; };
+		2DDD8EC1F69637F4635296DB /* Pennyworth.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pennyworth.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		35D5C54EBE2EE4E8C155A263 /* QueryParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryParserTests.swift; sourceTree = "<group>"; };
+		383437DA52C48FB744F17099 /* QueryParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryParser.swift; sourceTree = "<group>"; };
+		3FAEBEBCD390BF581FF97E24 /* RankingWeights.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingWeights.swift; sourceTree = "<group>"; };
+		50A12501D6291C427566CD0A /* SearchResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		536C915B46E538C432423460 /* ApplicationProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationProvider.swift; sourceTree = "<group>"; };
+		53E7B8F5CA949DB865C99A97 /* AppController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppController.swift; sourceTree = "<group>"; };
+		545433DCC582F19BE59D4A69 /* WebProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebProvider.swift; sourceTree = "<group>"; };
+		55F0BC7E6C8688125A26A131 /* SelectionEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionEvent.swift; sourceTree = "<group>"; };
+		55FB1C7A61F4284408A4FB8B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5B27AC072C6D2DC74717E363 /* PennyworthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PennyworthViewController.swift; sourceTree = "<group>"; };
+		5C4EE54AA62B05D195FD95EE /* StatusItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusItemController.swift; sourceTree = "<group>"; };
+		66D3982ACC6C6BE57E3464E1 /* WebSearchRegistry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSearchRegistry.swift; sourceTree = "<group>"; };
+		69CF53D3A0CBDC6B14D680E2 /* ActionExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionExecutor.swift; sourceTree = "<group>"; };
+		6B31CD0AF278B49D1BC472E9 /* DatabaseMigration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseMigration.swift; sourceTree = "<group>"; };
+		728EE4BEAE3A33EA53F8B8E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		76F862E85A5AAF14B24A5FCE /* URLPolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPolicyTests.swift; sourceTree = "<group>"; };
+		7B50E1496971F27B1B749AE2 /* ApplicationIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationIndex.swift; sourceTree = "<group>"; };
+		7DD31D96CCE8F15B90B245D3 /* SelectionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionStore.swift; sourceTree = "<group>"; };
+		82665AA3A918FA937F307564 /* FuzzyMatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuzzyMatcher.swift; sourceTree = "<group>"; };
+		8B2D3A80FD299351DEAC76E7 /* CalculatorProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorProvider.swift; sourceTree = "<group>"; };
+		9800DA88F297DC2CEF2E7325 /* FileMetadataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileMetadataService.swift; sourceTree = "<group>"; };
+		9A74DEED048383FA86967A58 /* RankingEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingEngine.swift; sourceTree = "<group>"; };
+		9C0D7B6BF4C9B10E4EF7F4C3 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		9F865D94E27FC6BE5C2239AD /* ResultAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultAction.swift; sourceTree = "<group>"; };
+		A6ED9882A68DB53E463A5EC6 /* DefaultWebSearches.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = DefaultWebSearches.json; sourceTree = "<group>"; };
+		A7687ECD124A9C4AB58CDE5B /* PennyworthUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PennyworthUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9939537907910E7C2F4BFB4 /* PennyworthUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PennyworthUITests.swift; sourceTree = "<group>"; };
+		ACAB9E30AC31A415991A00AD /* CalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorTests.swift; sourceTree = "<group>"; };
+		AFDC923EB9D9869782197340 /* UnitConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitConverter.swift; sourceTree = "<group>"; };
+		AFF824E705F8AA5A5C8B95CF /* FuzzyMatcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuzzyMatcherTests.swift; sourceTree = "<group>"; };
+		B5D9D4B5B36F73F25F94813F /* ResultRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultRowView.swift; sourceTree = "<group>"; };
+		B75165610075AD476946FC54 /* PennyworthTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PennyworthTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BAB24CE5F4408F8B42CFA2C4 /* RankingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankingTests.swift; sourceTree = "<group>"; };
+		BB76ED0DD2B3475F207FF5F7 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
+		BCE82833E8B84C54352A2DAF /* FileProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileProvider.swift; sourceTree = "<group>"; };
+		CCD29D9195CEED1CC83CD37B /* SearchCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCoordinator.swift; sourceTree = "<group>"; };
+		CD6FA5D48BEC18FB28E2E5CE /* ApplicationScanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationScanner.swift; sourceTree = "<group>"; };
+		D54D0837E2378331160A1E1E /* URLPolicy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLPolicy.swift; sourceTree = "<group>"; };
+		D8479063A56CF73A129006B6 /* DatabaseStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseStore.swift; sourceTree = "<group>"; };
+		D98533B0DF05B6E5FFC4DA1D /* ExpressionLexer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressionLexer.swift; sourceTree = "<group>"; };
+		DA22F25E13D702FCBD454733 /* IconRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconRepository.swift; sourceTree = "<group>"; };
+		DD7E8ECEADB11655062E7D55 /* PennyworthWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PennyworthWindowController.swift; sourceTree = "<group>"; };
+		E42E842A578679C107C769E1 /* WebSearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSearch.swift; sourceTree = "<group>"; };
+		E5478A30D2D36BA14D0E2CAB /* QuickLookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLookController.swift; sourceTree = "<group>"; };
+		E70DD30E8C8256F25DE175BE /* LoginItemController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginItemController.swift; sourceTree = "<group>"; };
+		E71F78109F2695F18A0662A9 /* PerformanceSignposts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PerformanceSignposts.swift; sourceTree = "<group>"; };
+		E82FBD5EE849F75118ED499B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E934E368EA6378F9B50597C0 /* CommandProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandProvider.swift; sourceTree = "<group>"; };
+		F333EC47FAA6010F09E8D398 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
+		FFEECA466C0F7506C379E897 /* PennyworthPanel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PennyworthPanel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1CD2FA94C5F630B36D600DC2 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				203FABE2494933F2CBE14A20 /* KeyboardShortcuts in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1F9434E3F33624E60D051B07 /* Providers */ = {
+			isa = PBXGroup;
+			children = (
+				E09FF2F026ACDC40EB57FEDA /* Applications */,
+				FD17718ADD0DFDD20EFBFCD8 /* Calculator */,
+				68A0E7E58B0014C45E47FC67 /* Commands */,
+				35BA79F6F52F106F34EF1D59 /* Files */,
+				EC2F26D3CE2776289EEFD2B8 /* Web */,
+			);
+			path = Providers;
+			sourceTree = "<group>";
+		};
+		206CE784DF4C1C81EF8E0ECE /* PennyworthTests */ = {
+			isa = PBXGroup;
+			children = (
+				ACAB9E30AC31A415991A00AD /* CalculatorTests.swift */,
+				AFF824E705F8AA5A5C8B95CF /* FuzzyMatcherTests.swift */,
+				120FF32502E72A364FC92F7C /* JudgeCorpusTests.swift */,
+				35D5C54EBE2EE4E8C155A263 /* QueryParserTests.swift */,
+				BAB24CE5F4408F8B42CFA2C4 /* RankingTests.swift */,
+				1F7ADE823C7AFC2DDCDAB4CC /* TemplateURLTests.swift */,
+				76F862E85A5AAF14B24A5FCE /* URLPolicyTests.swift */,
+			);
+			path = PennyworthTests;
+			sourceTree = "<group>";
+		};
+		2C538A3FBBA28857E1C3B76B = {
+			isa = PBXGroup;
+			children = (
+				4FA546AA96E769CD84288483 /* Pennyworth */,
+				206CE784DF4C1C81EF8E0ECE /* PennyworthTests */,
+				B1D52666AAE003F275680518 /* PennyworthUITests */,
+				E1CCF1576335D8ACA35843F3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		35BA79F6F52F106F34EF1D59 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				9800DA88F297DC2CEF2E7325 /* FileMetadataService.swift */,
+				BCE82833E8B84C54352A2DAF /* FileProvider.swift */,
+			);
+			path = Files;
+			sourceTree = "<group>";
+		};
+		46F7EE479637B8D654BA7B09 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				69CF53D3A0CBDC6B14D680E2 /* ActionExecutor.swift */,
+				9F865D94E27FC6BE5C2239AD /* ResultAction.swift */,
+			);
+			path = Actions;
+			sourceTree = "<group>";
+		};
+		4FA546AA96E769CD84288483 /* Pennyworth */ = {
+			isa = PBXGroup;
+			children = (
+				46F7EE479637B8D654BA7B09 /* Actions */,
+				CAB59D88CF93F3D30C05BF13 /* App */,
+				6446668FAF571DEBF5FFF11E /* Infrastructure */,
+				F127848803C275F7B4B6EA8F /* PennyworthPanel */,
+				EE9227FDA03149A24A750EDF /* Persistence */,
+				1F9434E3F33624E60D051B07 /* Providers */,
+				B99D9D17E5BFF4147E372286 /* Resources */,
+				9E58E5CEDBB00B956A2BD68A /* Search */,
+				F9DE2962FEEA5090E73E1A48 /* Settings */,
+			);
+			path = Pennyworth;
+			sourceTree = "<group>";
+		};
+		6446668FAF571DEBF5FFF11E /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				122891A28AF1D8E7EAF2D7C7 /* HotKeyController.swift */,
+				DA22F25E13D702FCBD454733 /* IconRepository.swift */,
+				E70DD30E8C8256F25DE175BE /* LoginItemController.swift */,
+				E71F78109F2695F18A0662A9 /* PerformanceSignposts.swift */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		68A0E7E58B0014C45E47FC67 /* Commands */ = {
+			isa = PBXGroup;
+			children = (
+				E934E368EA6378F9B50597C0 /* CommandProvider.swift */,
+			);
+			path = Commands;
+			sourceTree = "<group>";
+		};
+		9E58E5CEDBB00B956A2BD68A /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				C310FAC7A829347799337E36 /* Ranking */,
+				383437DA52C48FB744F17099 /* QueryParser.swift */,
+				CCD29D9195CEED1CC83CD37B /* SearchCoordinator.swift */,
+				042C9E693428198FB111DDBA /* SearchProvider.swift */,
+				2946A59F84D4ADEAB34C40AC /* SearchQuery.swift */,
+				50A12501D6291C427566CD0A /* SearchResult.swift */,
+				7DD31D96CCE8F15B90B245D3 /* SelectionStore.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		B1D52666AAE003F275680518 /* PennyworthUITests */ = {
+			isa = PBXGroup;
+			children = (
+				A9939537907910E7C2F4BFB4 /* PennyworthUITests.swift */,
+			);
+			path = PennyworthUITests;
+			sourceTree = "<group>";
+		};
+		B99D9D17E5BFF4147E372286 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E82FBD5EE849F75118ED499B /* Assets.xcassets */,
+				A6ED9882A68DB53E463A5EC6 /* DefaultWebSearches.json */,
+				728EE4BEAE3A33EA53F8B8E3 /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C310FAC7A829347799337E36 /* Ranking */ = {
+			isa = PBXGroup;
+			children = (
+				82665AA3A918FA937F307564 /* FuzzyMatcher.swift */,
+				9A74DEED048383FA86967A58 /* RankingEngine.swift */,
+				3FAEBEBCD390BF581FF97E24 /* RankingWeights.swift */,
+			);
+			path = Ranking;
+			sourceTree = "<group>";
+		};
+		CAB59D88CF93F3D30C05BF13 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				53E7B8F5CA949DB865C99A97 /* AppController.swift */,
+				55FB1C7A61F4284408A4FB8B /* AppDelegate.swift */,
+				BB76ED0DD2B3475F207FF5F7 /* Main.swift */,
+				5C4EE54AA62B05D195FD95EE /* StatusItemController.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		E09FF2F026ACDC40EB57FEDA /* Applications */ = {
+			isa = PBXGroup;
+			children = (
+				7B50E1496971F27B1B749AE2 /* ApplicationIndex.swift */,
+				536C915B46E538C432423460 /* ApplicationProvider.swift */,
+				CD6FA5D48BEC18FB28E2E5CE /* ApplicationScanner.swift */,
+			);
+			path = Applications;
+			sourceTree = "<group>";
+		};
+		E1CCF1576335D8ACA35843F3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2DDD8EC1F69637F4635296DB /* Pennyworth.app */,
+				B75165610075AD476946FC54 /* PennyworthTests.xctest */,
+				A7687ECD124A9C4AB58CDE5B /* PennyworthUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EC2F26D3CE2776289EEFD2B8 /* Web */ = {
+			isa = PBXGroup;
+			children = (
+				D54D0837E2378331160A1E1E /* URLPolicy.swift */,
+				545433DCC582F19BE59D4A69 /* WebProvider.swift */,
+				E42E842A578679C107C769E1 /* WebSearch.swift */,
+				66D3982ACC6C6BE57E3464E1 /* WebSearchRegistry.swift */,
+			);
+			path = Web;
+			sourceTree = "<group>";
+		};
+		EE9227FDA03149A24A750EDF /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				F333EC47FAA6010F09E8D398 /* AppSettings.swift */,
+				6B31CD0AF278B49D1BC472E9 /* DatabaseMigration.swift */,
+				D8479063A56CF73A129006B6 /* DatabaseStore.swift */,
+				55F0BC7E6C8688125A26A131 /* SelectionEvent.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		F127848803C275F7B4B6EA8F /* PennyworthPanel */ = {
+			isa = PBXGroup;
+			children = (
+				FFEECA466C0F7506C379E897 /* PennyworthPanel.swift */,
+				5B27AC072C6D2DC74717E363 /* PennyworthViewController.swift */,
+				DD7E8ECEADB11655062E7D55 /* PennyworthWindowController.swift */,
+				E5478A30D2D36BA14D0E2CAB /* QuickLookController.swift */,
+				B5D9D4B5B36F73F25F94813F /* ResultRowView.swift */,
+			);
+			path = PennyworthPanel;
+			sourceTree = "<group>";
+		};
+		F9DE2962FEEA5090E73E1A48 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9C0D7B6BF4C9B10E4EF7F4C3 /* SettingsModel.swift */,
+				2AD9E9B89AF61075CC53D7FB /* SettingsWindowController.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		FD17718ADD0DFDD20EFBFCD8 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				8B2D3A80FD299351DEAC76E7 /* CalculatorProvider.swift */,
+				D98533B0DF05B6E5FFC4DA1D /* ExpressionLexer.swift */,
+				0B98F12218CC60A2A1D77DBF /* ExpressionParser.swift */,
+				AFDC923EB9D9869782197340 /* UnitConverter.swift */,
+			);
+			path = Calculator;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0F6E5FAB2DB280C9BC73CC5F /* PennyworthUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 51D843AEC1B3AA8378285E44 /* Build configuration list for PBXNativeTarget "PennyworthUITests" */;
+			buildPhases = (
+				416F0A723FCBDCA01DE72040 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				724497BF569823CC5381DDA9 /* PBXTargetDependency */,
+			);
+			name = PennyworthUITests;
+			packageProductDependencies = (
+			);
+			productName = PennyworthUITests;
+			productReference = A7687ECD124A9C4AB58CDE5B /* PennyworthUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		5993B573F509F1F8707EE48A /* PennyworthTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BC17BEBE460700731584CEB /* Build configuration list for PBXNativeTarget "PennyworthTests" */;
+			buildPhases = (
+				EB4C9538A19BA7A019D9AB06 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9048590D001D1EF353784BDB /* PBXTargetDependency */,
+			);
+			name = PennyworthTests;
+			packageProductDependencies = (
+			);
+			productName = PennyworthTests;
+			productReference = B75165610075AD476946FC54 /* PennyworthTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6F9F89B36FDDF503539E2C95 /* Pennyworth */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9326841A41DA4DB91FE20E68 /* Build configuration list for PBXNativeTarget "Pennyworth" */;
+			buildPhases = (
+				9F330B85037F2145AB79B845 /* Sources */,
+				F5897A57B7E91A053961C825 /* Resources */,
+				1CD2FA94C5F630B36D600DC2 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Pennyworth;
+			packageProductDependencies = (
+				5786239C238681FF0C088ED3 /* KeyboardShortcuts */,
+			);
+			productName = Pennyworth;
+			productReference = 2DDD8EC1F69637F4635296DB /* Pennyworth.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E4F391DA61B0612FDBF03A95 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					0F6E5FAB2DB280C9BC73CC5F = {
+						TestTargetID = 6F9F89B36FDDF503539E2C95;
+					};
+					6F9F89B36FDDF503539E2C95 = {
+						ProvisioningStyle = Manual;
+					};
+				};
+			};
+			buildConfigurationList = 42A1B15EDB114EE5A50898E4 /* Build configuration list for PBXProject "Pennyworth" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 2C538A3FBBA28857E1C3B76B;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				D4B7444EAC674886A7E533A2 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = E1CCF1576335D8ACA35843F3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6F9F89B36FDDF503539E2C95 /* Pennyworth */,
+				5993B573F509F1F8707EE48A /* PennyworthTests */,
+				0F6E5FAB2DB280C9BC73CC5F /* PennyworthUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F5897A57B7E91A053961C825 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3CF89AF5F3D116249D862735 /* Assets.xcassets in Resources */,
+				BFAE002A3E7165D7710121AE /* DefaultWebSearches.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		416F0A723FCBDCA01DE72040 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E0AD678CC0C65F4E2358233B /* PennyworthUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F330B85037F2145AB79B845 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9ABA1EA6859585BA64DB2788 /* ActionExecutor.swift in Sources */,
+				BE3A30048C03D7E80AC2CC74 /* AppController.swift in Sources */,
+				2FE570707681A5BB8C7A9D17 /* AppDelegate.swift in Sources */,
+				3D547AA3BB990315E28BA706 /* AppSettings.swift in Sources */,
+				68954659EB63A8A3B3E13924 /* ApplicationIndex.swift in Sources */,
+				874C677C96660FDDFFBADA1C /* ApplicationProvider.swift in Sources */,
+				0344CF185D35C7CD1E51CA85 /* ApplicationScanner.swift in Sources */,
+				515E234844D6B51B11E28B42 /* CalculatorProvider.swift in Sources */,
+				26193D25F07E23A15086CF97 /* CommandProvider.swift in Sources */,
+				015AF715E2029F0510ACD714 /* DatabaseMigration.swift in Sources */,
+				703C2AA0D688703B651562F8 /* DatabaseStore.swift in Sources */,
+				F9E7D66F439C3EA43979643A /* ExpressionLexer.swift in Sources */,
+				CC33C9D96C3FBBFC5FA3728C /* ExpressionParser.swift in Sources */,
+				61DA20EAF9CF331244D8E3F3 /* FileMetadataService.swift in Sources */,
+				120A413D13B2F0172631946D /* FileProvider.swift in Sources */,
+				240D4BBB742251975EA51644 /* FuzzyMatcher.swift in Sources */,
+				014A3964A0DF59886B19F077 /* HotKeyController.swift in Sources */,
+				AA526E333C733876524FA1C8 /* IconRepository.swift in Sources */,
+				1DABDE5AA4C6AE1839271571 /* PennyworthPanel.swift in Sources */,
+				0E65FD765630B22E7EDAE521 /* PennyworthViewController.swift in Sources */,
+				36986EF39C917D200EC1A966 /* PennyworthWindowController.swift in Sources */,
+				749E60418AF6840F8F529713 /* LoginItemController.swift in Sources */,
+				4545344D39E3C6D267CC254F /* Main.swift in Sources */,
+				F80010B5788A52F2F3971058 /* PerformanceSignposts.swift in Sources */,
+				499629E5EAE8A4B0E33D81C0 /* QueryParser.swift in Sources */,
+				F9D293378C5491A98E7E6A48 /* QuickLookController.swift in Sources */,
+				F1B086D517F85E1526F441F7 /* RankingEngine.swift in Sources */,
+				9552AC5482B5CC0F4DBE11E3 /* RankingWeights.swift in Sources */,
+				FC366A48824F3F6645DCA3C5 /* ResultAction.swift in Sources */,
+				185AB01539553B964FBD242A /* ResultRowView.swift in Sources */,
+				E42F21934E6915010D5086D3 /* SearchCoordinator.swift in Sources */,
+				F2D43034CB2A5D17FD7CC92B /* SearchProvider.swift in Sources */,
+				CE32210B80E244D66E583F88 /* SearchQuery.swift in Sources */,
+				8148226C4125382E12A78AF8 /* SearchResult.swift in Sources */,
+				DE1DC92A5C15DDC2E3B9EC5A /* SelectionEvent.swift in Sources */,
+				E8CC35FCFF2CD1E2A085F243 /* SelectionStore.swift in Sources */,
+				2809F1C2E71CA4CB00CDA917 /* SettingsModel.swift in Sources */,
+				3C1D285D4E10EF56E8904846 /* SettingsWindowController.swift in Sources */,
+				0DE50B8DD28CF8E364C30B2D /* StatusItemController.swift in Sources */,
+				97B99AE0760C9E723B1C581E /* URLPolicy.swift in Sources */,
+				869655E3C29B2482AE4A6152 /* UnitConverter.swift in Sources */,
+				C595C7B066A8C68437D6C5E4 /* WebProvider.swift in Sources */,
+				FFA7E130F924417AEF45C134 /* WebSearch.swift in Sources */,
+				C24D17B90F2F7A526225376E /* WebSearchRegistry.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EB4C9538A19BA7A019D9AB06 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE5BD1C95F09C8B291216E1C /* CalculatorTests.swift in Sources */,
+				9B0FA906419736A4761B355C /* FuzzyMatcherTests.swift in Sources */,
+				814950E8A42B123C6DF06510 /* JudgeCorpusTests.swift in Sources */,
+				B94C577A3A5A087F963EF07E /* QueryParserTests.swift in Sources */,
+				D9C9D200A96E692F7F47485F /* RankingTests.swift in Sources */,
+				EA99C1F4ABDE6FD526918EC4 /* TemplateURLTests.swift in Sources */,
+				6C223667C8D737D31FA88932 /* URLPolicyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		724497BF569823CC5381DDA9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F9F89B36FDDF503539E2C95 /* Pennyworth */;
+			targetProxy = 89F2DA33F8125F5B91E67F12 /* PBXContainerItemProxy */;
+		};
+		9048590D001D1EF353784BDB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6F9F89B36FDDF503539E2C95 /* Pennyworth */;
+			targetProxy = 191889828AE1E04AFC2997AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		0994DF494892C33F37AEC454 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.pennyworth.uitests;
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = Pennyworth;
+			};
+			name = Debug;
+		};
+		1FB8E526CFE6F8F79DB09FAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Pennyworth/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.pennyworth;
+				PRODUCT_NAME = Pennyworth;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		341A95B9793F3EABC69CB2F1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.pennyworth.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pennyworth.app/Contents/MacOS/Pennyworth";
+			};
+			name = Debug;
+		};
+		524B642317FFBE0FAC42EB97 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.pennyworth.tests;
+				SDKROOT = macosx;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pennyworth.app/Contents/MacOS/Pennyworth";
+			};
+			name = Release;
+		};
+		53F6711FD6D355E6792D47DD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COMBINE_HIDPI_IMAGES = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.pennyworth.uitests;
+				SDKROOT = macosx;
+				TEST_TARGET_NAME = Pennyworth;
+			};
+			name = Release;
+		};
+		C3017D820FA3B4D8479CCE5F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Debug;
+		};
+		C3ECA683330E8F9762FA25E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Manual;
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = Pennyworth/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.local.pennyworth;
+				PRODUCT_NAME = Pennyworth;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		C9658F4120D66F5D1FCA7770 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_TREAT_WARNINGS_AS_ERRORS = YES;
+				SWIFT_VERSION = 6.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		42A1B15EDB114EE5A50898E4 /* Build configuration list for PBXProject "Pennyworth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3017D820FA3B4D8479CCE5F /* Debug */,
+				C9658F4120D66F5D1FCA7770 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4BC17BEBE460700731584CEB /* Build configuration list for PBXNativeTarget "PennyworthTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				341A95B9793F3EABC69CB2F1 /* Debug */,
+				524B642317FFBE0FAC42EB97 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		51D843AEC1B3AA8378285E44 /* Build configuration list for PBXNativeTarget "PennyworthUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0994DF494892C33F37AEC454 /* Debug */,
+				53F6711FD6D355E6792D47DD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		9326841A41DA4DB91FE20E68 /* Build configuration list for PBXNativeTarget "Pennyworth" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3ECA683330E8F9762FA25E0 /* Debug */,
+				1FB8E526CFE6F8F79DB09FAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D4B7444EAC674886A7E533A2 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				kind = exactVersion;
+				version = 1.10.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5786239C238681FF0C088ED3 /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D4B7444EAC674886A7E533A2 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = E4F391DA61B0612FDBF03A95 /* Project object */;
+}

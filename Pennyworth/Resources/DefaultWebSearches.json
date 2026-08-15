@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Google",
+    "keyword": "g",
+    "urlTemplate": "https://www.google.com/search?q={query}",
+    "isEnabled": true,
+    "sortOrder": 0
+  },
+  {
+    "name": "DuckDuckGo",
+    "keyword": "ddg",
+    "urlTemplate": "https://duckduckgo.com/?q={query}",
+    "isEnabled": true,
+    "sortOrder": 1
+  },
+  {
+    "name": "Wikipedia",
+    "keyword": "wiki",
+    "urlTemplate": "https://en.wikipedia.org/w/index.php?search={query}",
+    "isEnabled": true,
+    "sortOrder": 2
+  },
+  {
+    "name": "YouTube",
+    "keyword": "yt",
+    "urlTemplate": "https://www.youtube.com/results?search_query={query}",
+    "isEnabled": true,
+    "sortOrder": 3
+  }
+]
