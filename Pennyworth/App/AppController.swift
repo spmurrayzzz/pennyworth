@@ -65,8 +65,8 @@ final class AppController {
             onQuit: { NSApp.terminate(nil) }
         )
 
-        self.pennyworthWindow.setDismissHandler { [weak self] in
-            self?.hidePennyworth()
+        self.pennyworthWindow.setDismissHandler { [weak self] restoringForegroundApplication in
+            self?.hidePennyworth(restoringForegroundApplication: restoringForegroundApplication)
         }
         statusItemController.setOpenHandlers(
             onOpenPennyworth: { [weak self] in self?.showPennyworth() },
@@ -78,8 +78,8 @@ final class AppController {
         pennyworthWindow.show()
     }
 
-    private func hidePennyworth() {
-        pennyworthWindow.hide()
+    private func hidePennyworth(restoringForegroundApplication: Bool) {
+        pennyworthWindow.hide(restoringForegroundApplication: restoringForegroundApplication)
     }
 
     func togglePennyworth() {

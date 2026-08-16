@@ -16,7 +16,7 @@ final class PennyworthWindowController: NSWindowController, NSWindowDelegate {
         window.delegate = self
     }
 
-    func setDismissHandler(_ handler: @escaping () -> Void) {
+    func setDismissHandler(_ handler: @escaping (Bool) -> Void) {
         pennyworthViewController.onRequestDismiss = handler
     }
 
@@ -37,11 +37,13 @@ final class PennyworthWindowController: NSWindowController, NSWindowDelegate {
         pennyworthViewController.beginNewQuery()
     }
 
-    func hide() {
+    func hide(restoringForegroundApplication: Bool = true) {
         guard isShown else { return }
         panel.orderOut(nil)
         panel.resignKey()
-        foregroundApplication?.activate(options: [.activateAllWindows])
+        if restoringForegroundApplication {
+            foregroundApplication?.activate(options: [.activateAllWindows])
+        }
         foregroundApplication = nil
     }
 
@@ -75,7 +77,7 @@ final class PennyworthWindowController: NSWindowController, NSWindowDelegate {
             return
         }
         if panel.isVisible {
-            hide()
+            hide(restoringForegroundApplication: false)
         }
     }
 }

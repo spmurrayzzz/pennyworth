@@ -43,7 +43,7 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
     var coordinator: SearchCoordinator?
     var executor: ActionExecutor?
     var selectionStore: SelectionStore?
-    var onRequestDismiss: (() -> Void)?
+    var onRequestDismiss: ((Bool) -> Void)?
 
     private var rows: [RowModel] = []
     private var mode: ViewMode = .results
@@ -309,8 +309,12 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
             searchField.stringValue = ""
             coordinator?.update(query: "", limit: AppSettings.resultLimit)
         } else {
-            onRequestDismiss?()
+            requestDismiss(restoringForegroundApplication: true)
         }
+    }
+
+    private func requestDismiss(restoringForegroundApplication: Bool) {
+        onRequestDismiss?(restoringForegroundApplication)
     }
 
     private func handleReturn() {
@@ -430,7 +434,8 @@ default:
                 case .success, .acceptedDispatch:
                     self.recordSelection(result: result, actionID: action.id.rawValue)
                     if action.closeBehavior == .close {
-                        self.onRequestDismiss?()
+                        let restoresForegroundApplication = action.id == .copy || result.kind == .calculation
+                        self.requestDismiss(restoringForegroundApplication: restoresForegroundApplication)
                     }
                 case .failure(let message):
                     self.setHint(message)
@@ -451,12 +456,12 @@ default:
                 Task { await executor?.openFile(result, withApplicationAt: selectedURL) }
             }
             recordSelection(result: result, actionID: "openWith")
-            onRequestDismiss?()
+            requestDismiss(restoringForegroundApplication: false)
             return
         }
         Task { await executor?.openFile(result, withApplicationAt: url) }
         recordSelection(result: result, actionID: "openWith")
-        onRequestDismiss?()
+        requestDismiss(restoringForegroundApplication: false)
     }
 
     private var lastRecordedEvent: (identity: String, at: Date)?
@@ -531,7 +536,7 @@ default:
         guard result.kind == .application || result.kind == .file || result.kind == .command else { return }
         _ = executor?.reveal(result)
         recordSelection(result: result, actionID: "reveal")
-        onRequestDismiss?()
+        requestDismiss(restoringForegroundApplication: false)
     }
 
     private func copySelected() {
