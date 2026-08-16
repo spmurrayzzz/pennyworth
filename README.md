@@ -23,19 +23,21 @@ You must have these tools:
 - [xcodegen](https://github.com/yonaskolb/XcodeGen), installed with
   `brew install xcodegen`
 
-Generate the project, then build it:
+Use the `Makefile` to generate, build, and test the project:
 
 ```sh
-xcodegen generate
-xcodebuild -project Pennyworth.xcodeproj -scheme Pennyworth -configuration Debug build
+make build
+make test
 ```
 
-Run the unit tests:
+The targets run `make generate` before they run Xcode. The other targets are:
 
-```sh
-xcodebuild -project Pennyworth.xcodeproj -scheme Pennyworth \
-  -destination 'platform=macOS' test
-```
+| Target | Action |
+| --- | --- |
+| `make generate` | Generate `Pennyworth.xcodeproj`. |
+| `make release` | Generate the project and build the Release configuration. |
+| `make install` | Build Release and replace `~/Applications/Pennyworth.app`. |
+| `make run` | Install and open the app. |
 
 The automated test run covers the parser, the ranking, fuzzy matching, the
 calculator, and the URL policy. It also covers template validation. The
@@ -45,24 +47,14 @@ not run them.
 
 ## Local release install
 
-1. Build the Release configuration:
+1. Create the local Applications directory, then build, install, and open Pennyworth:
 
    ```sh
-   xcodebuild -project Pennyworth.xcodeproj -scheme Pennyworth \
-     -configuration Release -destination 'platform=macOS' build
-   ```
-
-2. Copy the app to `~/Applications`:
-
-   ```sh
-   APP=$(find "$HOME/Library/Developer/Xcode/DerivedData" \
-     -path '*/Build/Products/Release/Pennyworth.app' | head -1)
    mkdir -p "$HOME/Applications"
-   cp -R "$APP" "$HOME/Applications/"
+   make run
    ```
 
-3. Start the installed copy from `~/Applications/Pennyworth.app`.
-4. Open Settings from the status bar. Enable Launch at Login.
+2. Open Settings from the status bar. Enable Launch at Login.
 
 The app uses ad hoc signing (`Sign to Run Locally`). If macOS rejects the
 signature after a build, open Login Items in System Settings. Add the app
