@@ -15,6 +15,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
                 appController.togglePennyworth()
             }
         }
+        if CommandLine.arguments.contains("--open-settings") {
+            Task { @MainActor in
+                try? await Task.sleep(for: .milliseconds(600))
+                appController.showSettings()
+            }
+        }
     }
 
     func applicationWillTerminate(_ notification: Notification) {
