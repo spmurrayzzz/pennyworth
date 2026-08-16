@@ -12,6 +12,8 @@ There is no account, no telemetry, and no direct network request. The only
 dependency is the `KeyboardShortcuts` package. Keep the package at
 `1.10.0`. See `Package.resolved`.
 
+![The Pennyworth panel with results for the query "Microsoft"](assets/readme/panel-with-results.png)
+
 ## Build
 
 You must have these tools:
