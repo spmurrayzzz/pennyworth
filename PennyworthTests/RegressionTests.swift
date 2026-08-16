@@ -209,3 +209,32 @@ final class RegressionTests: XCTestCase {
         XCTAssertLessThan(p95Seconds, 0.05, "p95 query pipeline latency \(p95Seconds) exceeded 50ms")
     }
 }
+extension RegressionTests {
+    func testRealCatalogPipelineRanksSystemAppFirst() {
+        let records = ApplicationScanner.scanStandardRoots()
+        XCTAssertGreaterThan(records.count, 30, "expected a real application catalog on this machine")
+        let candidates = records.map { record -> SearchResult in
+            SearchResult(
+                providerID: ProviderID.application,
+                candidateID: record.bundleIdentifier,
+                entityKey: record.bundleIdentifier,
+                kind: .application,
+                title: record.displayName,
+                subtitle: record.bundleURL.path,
+                matchText: "\(record.displayName) \(record.bundleName) \(record.bundleURL.path)",
+                aliases: record.aliases,
+                targetValue: record.bundleURL.path,
+                icon: .application(record.bundleURL),
+                accessoryText: nil,
+                realized: true
+            )
+        }
+        let parsed = QueryParser(webKeywords: []).parse("textedit")
+        let ranked = RankingEngine.rank(candidates: candidates, query: parsed, learning: .empty, limit: 5)
+        XCTAssertFalse(ranked.isEmpty)
+        XCTAssertTrue(
+            ranked.prefix(3).contains { $0.title.localizedCaseInsensitiveContains("textedit") },
+            "TextEdit should rank in the top three for 'textedit'. got: \(ranked.prefix(5).map(\.title))"
+        )
+    }
+}

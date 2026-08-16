@@ -101,6 +101,7 @@ final class AppController {
         }
     }
 
+
     private var settingsController: SettingsWindowController?
 
     func showSettings() {

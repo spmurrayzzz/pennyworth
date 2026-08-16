@@ -131,7 +131,16 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
     private func installMonitor() {
         guard localMonitor == nil else { return }
         localMonitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
-            self?.centerKeyHandling(event)
+            guard let self else { return event }
+            // AppKit runs local handlers on the main thread, but the
+            // handler type is not isolated. Extract only the Sendable
+            // components of the event, then act on the main actor.
+            let keyCode = event.keyCode
+            let modifiers = event.modifierFlags.intersection(.deviceIndependentFlagsMask)
+            let handled = MainActor.assumeIsolated {
+                self.handleKeyEvent(keyCode: keyCode, modifiers: modifiers)
+            }
+            return handled ? nil : event
         }
     }
 
@@ -408,32 +417,31 @@ default:
 
     // MARK: - Command key shortcuts
 
-    private func centerKeyHandling(_ event: NSEvent) -> NSEvent? {
-        guard view.window != nil, view.window?.isKeyWindow == true else { return event }
-        let modifiers = event.modifierFlags.intersection(.deviceIndependentFlagsMask)
+    private func handleKeyEvent(keyCode: UInt16, modifiers: NSEvent.ModifierFlags) -> Bool {
+        guard view.window != nil, view.window?.isKeyWindow == true else { return false }
         guard modifiers.contains(.command), modifiers.intersection([.option, .control, .shift]).isEmpty else {
-            return event
+            return false
         }
-        if (18...26).contains(Int(event.keyCode)) {
-            let number = Int(event.keyCode) - 18 + 1
-            guard rows.indices.contains(number - 1) else { return event }
+        if (18...26).contains(Int(keyCode)) {
+            let number = Int(keyCode) - 18 + 1
+            guard rows.indices.contains(number - 1) else { return false }
             selectResultIndex(number - 1)
             handleReturn()
-            return nil
+            return true
         }
-        if event.keyCode == 36 { // Return
+        if keyCode == 36 { // Return
             revealSelectedIfPossible()
-            return nil
+            return true
         }
-        if event.keyCode == 8 { // C
+        if keyCode == 8 { // C
             copySelected()
-            return nil
+            return true
         }
-        if event.keyCode == 16 { // Y
+        if keyCode == 16 { // Y
             quickLookSelected()
-            return nil
+            return true
         }
-        return event
+        return false
     }
 
     private func selectResultIndex(_ index: Int) {

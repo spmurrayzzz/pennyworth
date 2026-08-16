@@ -56,6 +56,7 @@ final class SearchCoordinator {
         activeTask?.cancel()
     }
 
+
     private func run(query: String, limit: Int) async -> [SearchResult] {
         let parser = QueryParser(webKeywords: webRegistry.keywords)
         let parsed = parser.parse(query)
