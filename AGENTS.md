@@ -32,15 +32,16 @@ Three hard product constraints apply:
   Apple silicon.
 - Enable strict concurrency everywhere. First-party warnings are treated
   as errors.
-- xcodegen generates the project from `project.yml`. Regenerate the
-  project after you add or remove files.
-- `KeyboardShortcuts` is the only dependency. Keep it pinned to
+- XcodeGen generates the project from `project.yml`. The `Tools/XcodeGen`
+  submodule is pinned to 2.46.0. Use `make generate`. Regenerate the project
+  after you add or remove files.
+- `KeyboardShortcuts` is the only app dependency. Keep it pinned to
   **1.10.0**. Do not "upgrade" it. The 3.0.1 tag does not exist upstream.
 
 Commands:
 
 ```sh
-xcodegen generate
+make generate
 xcodebuild -project Pennyworth.xcodeproj -scheme Pennyworth -destination 'platform=macOS' test
 xcodebuild -project Pennyworth.xcodeproj -scheme Pennyworth -configuration Release -destination 'platform=macOS' build
 ```

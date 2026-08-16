@@ -8,8 +8,8 @@ Use it to do these tasks:
 - Evaluate calculations
 - Run a small set of system commands
 
-There is no account, no telemetry, and no direct network request. The only
-dependency is the `KeyboardShortcuts` package. Keep the package at
+There is no account, no telemetry, and no direct network request. The app's
+only dependency is the `KeyboardShortcuts` package. Keep the package at
 `1.10.0`. See `Package.resolved`.
 
 ![The Pennyworth panel with results for the query "Microsoft"](assets/readme/panel-with-results.png)
@@ -20,10 +20,16 @@ You must have these tools:
 
 - macOS 26.0 or later on Apple silicon
 - Xcode 26.6 (Swift 6, strict concurrency)
-- [xcodegen](https://github.com/yonaskolb/XcodeGen), installed with
-  `brew install xcodegen`
 
-Use the `Makefile` to generate, build, and test the project:
+Initialize the [XcodeGen 2.46.0](https://github.com/yonaskolb/XcodeGen)
+submodule after you clone the repository:
+
+```sh
+git submodule update --init
+```
+
+The `Makefile` builds XcodeGen locally with Swift Package Manager. Use it to
+generate, build, and test the project:
 
 ```sh
 make build

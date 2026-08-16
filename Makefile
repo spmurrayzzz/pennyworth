@@ -1,7 +1,7 @@
 .PHONY: generate build test release install run
 
 generate:
-	xcodegen generate
+	swift run --package-path Tools/XcodeGen xcodegen generate --spec project.yml
 
 build: generate
 	xcodebuild -project Pennyworth.xcodeproj -scheme Pennyworth -destination 'platform=macOS' build
