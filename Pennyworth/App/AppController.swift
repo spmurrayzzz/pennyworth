@@ -53,6 +53,12 @@ final class AppController {
 
         self.pennyworthWindow = PennyworthWindowController(content: pennyworthViewController)
 
+        coordinator.onResults = { [weak pennyworthViewController] results in
+            Task { @MainActor in
+                pennyworthViewController?.applyResults(results)
+            }
+        }
+
         statusItemController = StatusItemController(
             onOpenPennyworth: {},
             onOpenSettings: {},

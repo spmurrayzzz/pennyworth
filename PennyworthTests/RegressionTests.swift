@@ -123,6 +123,32 @@ final class RegressionTests: XCTestCase {
         XCTAssertEqual(FileIdentity.identity(documentID: 33, volumeUUID: "ABC-DEF", path: path).isEmpty, false)
     }
 
+    func testCoordinatorPublishesResultsThroughCallback() async throws {
+        let database = await makeDatabase()
+        let registry = WebSearchRegistry(database: database)
+        let index = ApplicationIndex()
+        let coordinator = SearchCoordinator(
+            applicationProvider: ApplicationProvider(index: index),
+            fileProvider: FileProvider(service: FileMetadataService()),
+            webProvider: WebProvider(registry: registry),
+            calculatorProvider: CalculatorProvider(),
+            commandProvider: CommandProvider(),
+            applicationIndex: index,
+            selectionStore: SelectionStore(database: database),
+            webRegistry: registry
+        )
+        var received: [SearchResult]?
+        coordinator.onResults = { results in
+            received = results
+        }
+        coordinator.update(query: "safari", limit: 20)
+        for _ in 0..<20 {
+            if received != nil { break }
+            try? await Task.sleep(for: .milliseconds(50))
+        }
+        XCTAssertNotNil(received, "the coordinator callback must publish computed results")
+    }
+
     func testStaleFileMetadataIsRejected() {
         let url = URL(fileURLWithPath: "/tmp/stale-example.txt")
         let recent = FileMetadata(

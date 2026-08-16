@@ -25,7 +25,7 @@ final class StatusItemController: NSObject, NSMenuDelegate {
 
     private func configure() {
         if let button = statusItem.button {
-            button.image = NSImage(systemSymbolName: "magnifyingglass", accessibilityDescription: "Pennyworth")
+            button.image = Self.makeStatusIcon()
         }
 
         menu.delegate = self
@@ -73,5 +73,40 @@ final class StatusItemController: NSObject, NSMenuDelegate {
 
     func menuWillOpen(_ menu: NSMenu) {
         loginMenuItem?.state = LoginItemController.shared.isRegistered ? .on : .off
+    }
+
+    private static func makeStatusIcon() -> NSImage {
+        let dimension: CGFloat = 18
+        let image = NSImage(size: NSSize(width: dimension, height: dimension))
+        image.lockFocus()
+
+        let background = NSBezierPath(
+            roundedRect: NSRect(x: 0, y: 0, width: dimension, height: dimension),
+            xRadius: 4.5,
+            yRadius: 4.5
+        )
+        NSColor(calibratedRed: 0.36, green: 0.34, blue: 0.92, alpha: 1).setFill()
+        background.fill()
+
+        NSColor.white.set()
+        let centerX = dimension * 0.47
+        let centerY = dimension * 0.58
+        let radius = dimension * 0.21
+        let circle = NSBezierPath(
+            ovalIn: NSRect(x: centerX - radius, y: centerY - radius, width: radius * 2, height: radius * 2)
+        )
+        circle.lineWidth = dimension * 0.07
+        circle.stroke()
+
+        let handle = NSBezierPath()
+        handle.move(to: NSPoint(x: centerX - radius * 0.35, y: centerY - radius * 0.35))
+        handle.line(to: NSPoint(x: centerX + radius * 0.75, y: centerY - radius * 0.95))
+        handle.lineWidth = dimension * 0.1
+        handle.lineCapStyle = .round
+        handle.stroke()
+
+        image.unlockFocus()
+        image.isTemplate = false
+        return image
     }
 }
