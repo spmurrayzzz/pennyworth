@@ -2,7 +2,7 @@ import AppKit
 
 @MainActor
 final class StatusItemController: NSObject, NSMenuDelegate {
-    private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+    private let statusItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
     private let menu = NSMenu()
     private var loginMenuItem: NSMenuItem?
 
@@ -76,37 +76,29 @@ final class StatusItemController: NSObject, NSMenuDelegate {
     }
 
     private static func makeStatusIcon() -> NSImage {
-        let dimension: CGFloat = 18
-        let image = NSImage(size: NSSize(width: dimension, height: dimension))
-        image.lockFocus()
-
-        let background = NSBezierPath(
-            roundedRect: NSRect(x: 0, y: 0, width: dimension, height: dimension),
-            xRadius: 4.5,
-            yRadius: 4.5
-        )
-        NSColor(calibratedRed: 0.36, green: 0.34, blue: 0.92, alpha: 1).setFill()
-        background.fill()
-
-        NSColor.white.set()
-        let centerX = dimension * 0.47
-        let centerY = dimension * 0.58
-        let radius = dimension * 0.21
-        let circle = NSBezierPath(
-            ovalIn: NSRect(x: centerX - radius, y: centerY - radius, width: radius * 2, height: radius * 2)
-        )
-        circle.lineWidth = dimension * 0.07
-        circle.stroke()
-
-        let handle = NSBezierPath()
-        handle.move(to: NSPoint(x: centerX - radius * 0.35, y: centerY - radius * 0.35))
-        handle.line(to: NSPoint(x: centerX + radius * 0.75, y: centerY - radius * 0.95))
-        handle.lineWidth = dimension * 0.1
-        handle.lineCapStyle = .round
-        handle.stroke()
-
-        image.unlockFocus()
-        image.isTemplate = false
+        let image = NSImage(size: NSSize(width: 18, height: 18), flipped: false) { _ in
+            let path = NSBezierPath()
+            path.windingRule = .evenOdd
+            path.move(to: NSPoint(x: 7, y: 16.5))
+            path.line(to: NSPoint(x: 11, y: 16.5))
+            path.line(to: NSPoint(x: 11.8, y: 13.8))
+            path.line(to: NSPoint(x: 10.2, y: 11.2))
+            path.line(to: NSPoint(x: 12.8, y: 3.8))
+            path.line(to: NSPoint(x: 9, y: 0.7))
+            path.line(to: NSPoint(x: 5.2, y: 3.8))
+            path.line(to: NSPoint(x: 7.8, y: 11.2))
+            path.line(to: NSPoint(x: 6.2, y: 13.8))
+            path.close()
+            path.move(to: NSPoint(x: 6.6, y: 7.3))
+            path.line(to: NSPoint(x: 11.7, y: 5.75))
+            path.line(to: NSPoint(x: 12.1, y: 4.5))
+            path.line(to: NSPoint(x: 6.15, y: 6.25))
+            path.close()
+            NSColor.black.setFill()
+            path.fill()
+            return true
+        }
+        image.isTemplate = true
         return image
     }
 }
