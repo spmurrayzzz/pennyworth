@@ -15,7 +15,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6F9F89B36FDDF503539E2C95"
+               BlueprintIdentifier = "435807E238E58A39BCDE180A"
                BuildableName = "Pennyworth.app"
                BlueprintName = "Pennyworth"
                ReferencedContainer = "container:Pennyworth.xcodeproj">
@@ -29,7 +29,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5993B573F509F1F8707EE48A"
+               BlueprintIdentifier = "3A9BCBC2B03DBF3BC28AB09C"
                BuildableName = "PennyworthTests.xctest"
                BlueprintName = "PennyworthTests"
                ReferencedContainer = "container:Pennyworth.xcodeproj">
@@ -43,7 +43,7 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "0F6E5FAB2DB280C9BC73CC5F"
+               BlueprintIdentifier = "5BA65FACE58FE419C8B93237"
                BuildableName = "PennyworthUITests.xctest"
                BlueprintName = "PennyworthUITests"
                ReferencedContainer = "container:Pennyworth.xcodeproj">
@@ -54,13 +54,13 @@
    <TestAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedPennyworthIdentifier = "Xcode.DebuggerFoundation.Pennyworth.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES"
       onlyGenerateCoverageForSpecifiedTargets = "NO">
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6F9F89B36FDDF503539E2C95"
+            BlueprintIdentifier = "435807E238E58A39BCDE180A"
             BuildableName = "Pennyworth.app"
             BlueprintName = "Pennyworth"
             ReferencedContainer = "container:Pennyworth.xcodeproj">
@@ -72,7 +72,7 @@
             parallelizable = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5993B573F509F1F8707EE48A"
+               BlueprintIdentifier = "3A9BCBC2B03DBF3BC28AB09C"
                BuildableName = "PennyworthTests.xctest"
                BlueprintName = "PennyworthTests"
                ReferencedContainer = "container:Pennyworth.xcodeproj">
@@ -85,7 +85,7 @@
    <LaunchAction
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
-      selectedPennyworthIdentifier = "Xcode.DebuggerFoundation.Pennyworth.LLDB"
+      selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -96,7 +96,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6F9F89B36FDDF503539E2C95"
+            BlueprintIdentifier = "435807E238E58A39BCDE180A"
             BuildableName = "Pennyworth.app"
             BlueprintName = "Pennyworth"
             ReferencedContainer = "container:Pennyworth.xcodeproj">
@@ -113,7 +113,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6F9F89B36FDDF503539E2C95"
+            BlueprintIdentifier = "435807E238E58A39BCDE180A"
             BuildableName = "Pennyworth.app"
             BlueprintName = "Pennyworth"
             ReferencedContainer = "container:Pennyworth.xcodeproj">
