@@ -31,10 +31,14 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
 
     private let iconRepository = IconRepository.shared
     private let searchField = NSSearchField()
+    private let searchBackground = NSView()
     private let tableView = NSTableView()
     private let scrollView = NSScrollView()
     private let hintLabel = NSTextField(labelWithString: "")
     private let carouselBackground = NSVisualEffectView()
+    private let panelTint = NSView()
+    private var scrollBottomConstraint: NSLayoutConstraint?
+    private var scrollBottomToHintConstraint: NSLayoutConstraint?
 
     var coordinator: SearchCoordinator?
     var executor: ActionExecutor?
@@ -49,28 +53,63 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
     // MARK: - View construction
 
     override func loadView() {
-        let root = NSView(frame: NSRect(x: 0, y: 0, width: 620, height: 340))
+        let root = NSView(frame: NSRect(x: 0, y: 0, width: 736, height: 372))
+        root.appearance = NSAppearance(named: .darkAqua)
 
-        carouselBackground.material = .popover
+        carouselBackground.material = .hudWindow
         carouselBackground.blendingMode = .behindWindow
         carouselBackground.state = .active
         carouselBackground.wantsLayer = true
-        carouselBackground.layer?.cornerRadius = 12
+        carouselBackground.layer?.cornerRadius = 16
+        carouselBackground.layer?.cornerCurve = .continuous
+        carouselBackground.layer?.borderWidth = 1
+        carouselBackground.layer?.borderColor = NSColor.white.withAlphaComponent(0.22).cgColor
+        carouselBackground.layer?.masksToBounds = true
         carouselBackground.translatesAutoresizingMaskIntoConstraints = false
         root.addSubview(carouselBackground)
 
-        searchField.placeholderString = "Search applications, files, web, calculator, commands"
-        searchField.font = .systemFont(ofSize: 18)
+        panelTint.wantsLayer = true
+        panelTint.layer?.backgroundColor = NSColor(
+            srgbRed: 0.055,
+            green: 0.055,
+            blue: 0.058,
+            alpha: 0.82
+        ).cgColor
+        panelTint.translatesAutoresizingMaskIntoConstraints = false
+        carouselBackground.addSubview(panelTint)
+
+        searchBackground.wantsLayer = true
+        searchBackground.layer?.backgroundColor = NSColor(
+            srgbRed: 0.055,
+            green: 0.055,
+            blue: 0.06,
+            alpha: 1
+        ).cgColor
+        searchBackground.layer?.cornerRadius = 9
+        searchBackground.layer?.cornerCurve = .continuous
+        searchBackground.translatesAutoresizingMaskIntoConstraints = false
+        carouselBackground.addSubview(searchBackground)
+
+        searchField.placeholderString = "Search"
+        searchField.font = .systemFont(ofSize: 32, weight: .regular)
+        searchField.textColor = .white
+        searchField.isBordered = false
+        searchField.drawsBackground = false
+        searchField.focusRingType = .none
         searchField.controlSize = .large
         searchField.translatesAutoresizingMaskIntoConstraints = false
         searchField.delegate = self
-        carouselBackground.addSubview(searchField)
+        if let searchCell = searchField.cell as? NSSearchFieldCell {
+            searchCell.searchButtonCell = nil
+            searchCell.cancelButtonCell = nil
+        }
+        searchBackground.addSubview(searchField)
 
         let column = NSTableColumn(identifier: NSUserInterfaceItemIdentifier("main"))
         column.resizingMask = .autoresizingMask
         tableView.addTableColumn(column)
         tableView.headerView = nil
-        tableView.rowHeight = 44
+        tableView.rowHeight = 46
         tableView.intercellSpacing = NSSize(width: 0, height: 0)
         tableView.style = .plain
         tableView.backgroundColor = .clear
@@ -78,7 +117,7 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.selectionHighlightStyle = .regular
+        tableView.selectionHighlightStyle = .none
 
         scrollView.documentView = tableView
         scrollView.drawsBackground = false
@@ -86,12 +125,23 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         carouselBackground.addSubview(scrollView)
 
-        hintLabel.font = .systemFont(ofSize: 11)
-        hintLabel.textColor = .tertiaryLabelColor
+        hintLabel.font = .systemFont(ofSize: 13)
+        hintLabel.textColor = NSColor.white.withAlphaComponent(0.52)
+        hintLabel.isHidden = true
         hintLabel.translatesAutoresizingMaskIntoConstraints = false
         carouselBackground.addSubview(hintLabel)
 
         view = root
+
+        scrollBottomConstraint = scrollView.bottomAnchor.constraint(
+            equalTo: carouselBackground.bottomAnchor,
+            constant: -9
+        )
+        scrollBottomToHintConstraint = scrollView.bottomAnchor.constraint(
+            equalTo: hintLabel.topAnchor,
+            constant: -6
+        )
+        scrollBottomConstraint?.isActive = true
 
         NSLayoutConstraint.activate([
             carouselBackground.topAnchor.constraint(equalTo: root.topAnchor, constant: 8),
@@ -99,17 +149,27 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
             carouselBackground.trailingAnchor.constraint(equalTo: root.trailingAnchor, constant: -8),
             carouselBackground.bottomAnchor.constraint(equalTo: root.bottomAnchor, constant: -8),
 
-            searchField.topAnchor.constraint(equalTo: carouselBackground.topAnchor, constant: 12),
-            searchField.leadingAnchor.constraint(equalTo: carouselBackground.leadingAnchor, constant: 14),
-            searchField.trailingAnchor.constraint(equalTo: carouselBackground.trailingAnchor, constant: -14),
+            panelTint.topAnchor.constraint(equalTo: carouselBackground.topAnchor),
+            panelTint.leadingAnchor.constraint(equalTo: carouselBackground.leadingAnchor),
+            panelTint.trailingAnchor.constraint(equalTo: carouselBackground.trailingAnchor),
+            panelTint.bottomAnchor.constraint(equalTo: carouselBackground.bottomAnchor),
 
-            scrollView.topAnchor.constraint(equalTo: searchField.bottomAnchor, constant: 8),
-            scrollView.leadingAnchor.constraint(equalTo: carouselBackground.leadingAnchor, constant: 4),
-            scrollView.trailingAnchor.constraint(equalTo: carouselBackground.trailingAnchor, constant: -4),
+            searchBackground.topAnchor.constraint(equalTo: carouselBackground.topAnchor, constant: 9),
+            searchBackground.leadingAnchor.constraint(equalTo: carouselBackground.leadingAnchor, constant: 9),
+            searchBackground.trailingAnchor.constraint(equalTo: carouselBackground.trailingAnchor, constant: -9),
+            searchBackground.heightAnchor.constraint(equalToConstant: 52),
 
-            hintLabel.topAnchor.constraint(equalTo: scrollView.bottomAnchor, constant: 6),
-            hintLabel.leadingAnchor.constraint(equalTo: carouselBackground.leadingAnchor, constant: 16),
-            hintLabel.trailingAnchor.constraint(equalTo: carouselBackground.trailingAnchor, constant: -16),
+            searchField.leadingAnchor.constraint(equalTo: searchBackground.leadingAnchor, constant: 9),
+            searchField.trailingAnchor.constraint(equalTo: searchBackground.trailingAnchor, constant: -9),
+            searchField.centerYAnchor.constraint(equalTo: searchBackground.centerYAnchor),
+            searchField.heightAnchor.constraint(equalToConstant: 40),
+
+            scrollView.topAnchor.constraint(equalTo: searchBackground.bottomAnchor, constant: 10),
+            scrollView.leadingAnchor.constraint(equalTo: carouselBackground.leadingAnchor, constant: 9),
+            scrollView.trailingAnchor.constraint(equalTo: carouselBackground.trailingAnchor, constant: -9),
+
+            hintLabel.leadingAnchor.constraint(equalTo: carouselBackground.leadingAnchor, constant: 18),
+            hintLabel.trailingAnchor.constraint(equalTo: carouselBackground.trailingAnchor, constant: -18),
             hintLabel.bottomAnchor.constraint(equalTo: carouselBackground.bottomAnchor, constant: -10),
         ])
     }
@@ -151,7 +211,7 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
         rows = []
         mode = .results
         selectedIndex = 0
-        hintLabel.stringValue = "Type to search."
+        setHint("Type to search.")
         tableView.reloadData()
         view.window?.makeFirstResponder(searchField)
     }
@@ -170,14 +230,26 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
         if results.isEmpty {
             switch coordinator?.lastParsed?.mode {
             case .fileOpen, .fileFind:
-                hintLabel.stringValue = "No matching files. Spotlight may be disabled; check System Settings."
+                setHint("No matching files. Spotlight may be disabled; check System Settings.")
             default:
-                hintLabel.stringValue = "No results."
+                setHint("No results.")
             }
         } else {
-            hintLabel.stringValue = ""
+            setHint("")
         }
         tableView.reloadData()
+    }
+
+    private func setHint(_ message: String) {
+        hintLabel.stringValue = message
+        hintLabel.isHidden = message.isEmpty
+        if message.isEmpty {
+            scrollBottomToHintConstraint?.isActive = false
+            scrollBottomConstraint?.isActive = true
+        } else {
+            scrollBottomConstraint?.isActive = false
+            scrollBottomToHintConstraint?.isActive = true
+        }
     }
 
     // MARK: - Search field
@@ -310,6 +382,10 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
         return cell
     }
 
+    func tableView(_ tableView: NSTableView, rowViewForRow row: Int) -> NSTableRowView? {
+        PennyworthTableRowView()
+    }
+
     func tableViewSelectionDidChange(_ notification: Notification) {
         let row = tableView.selectedRow
         if row >= 0 {
@@ -324,7 +400,7 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
         rows = actions.map { .action($0) }
         mode = .actions(for: result)
         selectedIndex = 0
-        hintLabel.stringValue = "Choose an action, or press Left to return"
+        setHint("Choose an action, or press Left to return")
         tableView.reloadData()
     }
 
@@ -357,7 +433,7 @@ default:
                         self.onRequestDismiss?()
                     }
                 case .failure(let message):
-                    self.hintLabel.stringValue = message
+                    self.setHint(message)
                 }
             }
         }
@@ -409,9 +485,9 @@ default:
     }
 
     private func flashError(_ message: String) {
-        hintLabel.stringValue = message
+        setHint(message)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-            self?.hintLabel.stringValue = ""
+            self?.setHint("")
         }
     }
 
