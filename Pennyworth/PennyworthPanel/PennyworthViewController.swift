@@ -44,10 +44,12 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
     var executor: ActionExecutor?
     var selectionStore: SelectionStore?
     var onRequestDismiss: ((Bool) -> Void)?
+    var onResultsVisibilityChange: ((Bool) -> Void)?
 
     private var rows: [RowModel] = []
     private var mode: ViewMode = .results
     private var selectedIndex = 0
+    private var showsResults = true
     private var localMonitor: Any?
 
     // MARK: - View construction
@@ -208,16 +210,12 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
 
     func beginNewQuery() {
         searchField.stringValue = ""
-        rows = []
-        mode = .results
-        selectedIndex = 0
-        setHint("Type to search.")
-        tableView.reloadData()
+        resetForEmptyQuery()
         view.window?.makeFirstResponder(searchField)
     }
 
     func applyResults(_ results: [SearchResult]) {
-        guard mode.isActionMode == false else { return }
+        guard mode.isActionMode == false, !searchField.stringValue.isEmpty else { return }
         let previousID = rows.indices.contains(selectedIndex) ? rows[selectedIndex].id : nil
         rows = results.map { .result($0) }
         if let previousID, let index = rows.firstIndex(where: { $0.id == previousID }) {
@@ -240,15 +238,40 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
         tableView.reloadData()
     }
 
+    private func resetForEmptyQuery() {
+        rows = []
+        mode = .results
+        selectedIndex = 0
+        setHint("")
+        setResultsVisible(false)
+        tableView.reloadData()
+    }
+
+    private func setResultsVisible(_ visible: Bool) {
+        guard showsResults != visible else { return }
+        if visible {
+            onResultsVisibilityChange?(true)
+        }
+        showsResults = visible
+        scrollView.isHidden = !visible
+        updateResultsLayout()
+        if !visible {
+            onResultsVisibilityChange?(false)
+        }
+    }
+
     private func setHint(_ message: String) {
         hintLabel.stringValue = message
-        hintLabel.isHidden = message.isEmpty
-        if message.isEmpty {
-            scrollBottomToHintConstraint?.isActive = false
-            scrollBottomConstraint?.isActive = true
-        } else {
-            scrollBottomConstraint?.isActive = false
-            scrollBottomToHintConstraint?.isActive = true
+        updateResultsLayout()
+    }
+
+    private func updateResultsLayout() {
+        let showsHint = showsResults && !hintLabel.stringValue.isEmpty
+        hintLabel.isHidden = !showsHint
+        scrollBottomConstraint?.isActive = false
+        scrollBottomToHintConstraint?.isActive = false
+        if showsResults {
+            (showsHint ? scrollBottomToHintConstraint : scrollBottomConstraint)?.isActive = true
         }
     }
 
@@ -257,7 +280,9 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
     func controlTextDidChange(_ obj: Notification) {
         let text = searchField.stringValue
         if text.isEmpty {
-            mode = .results
+            resetForEmptyQuery()
+        } else {
+            setResultsVisible(true)
         }
         coordinator?.update(query: text, limit: AppSettings.resultLimit)
     }
@@ -307,6 +332,7 @@ final class PennyworthViewController: NSViewController, NSTableViewDataSource, N
     private func handleEscape() {
         if !searchField.stringValue.isEmpty {
             searchField.stringValue = ""
+            resetForEmptyQuery()
             coordinator?.update(query: "", limit: AppSettings.resultLimit)
         } else {
             requestDismiss(restoringForegroundApplication: true)

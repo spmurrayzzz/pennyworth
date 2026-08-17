@@ -14,6 +14,9 @@ final class PennyworthWindowController: NSWindowController, NSWindowDelegate {
         self.panel = window
         super.init(window: window)
         window.delegate = self
+        content.onResultsVisibilityChange = { [weak self] visible in
+            self?.resizeForResults(visible)
+        }
     }
 
     func setDismissHandler(_ handler: @escaping (Bool) -> Void) {
@@ -31,10 +34,10 @@ final class PennyworthWindowController: NSWindowController, NSWindowDelegate {
     func show() {
         guard !isShown else { return }
         foregroundApplication = NSWorkspace.shared.frontmostApplication
+        pennyworthViewController.beginNewQuery()
         positionOnPointerScreen()
         panel.makeKeyAndOrderFront(nil)
         NSApp.activate()
-        pennyworthViewController.beginNewQuery()
     }
 
     func hide(restoringForegroundApplication: Bool = true) {
@@ -53,6 +56,19 @@ final class PennyworthWindowController: NSWindowController, NSWindowDelegate {
         } else {
             show()
         }
+    }
+
+    private func resizeForResults(_ visible: Bool) {
+        let height: CGFloat = visible ? 372 : 86
+        let currentFrame = panel.frame
+        guard currentFrame.height != height else { return }
+        let frame = NSRect(
+            x: currentFrame.minX,
+            y: currentFrame.maxY - height,
+            width: currentFrame.width,
+            height: height
+        )
+        panel.setFrame(frame, display: true)
     }
 
     private func positionOnPointerScreen() {
