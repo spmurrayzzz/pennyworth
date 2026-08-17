@@ -63,9 +63,10 @@ final class PennyworthWindowController: NSWindowController, NSWindowDelegate {
         guard let screen else { return }
         let size = panel.frame.size
         let visible = screen.visibleFrame
+        let topInset = visible.height * 0.14
         let frame = NSRect(
             x: visible.midX - size.width / 2,
-            y: visible.midY - size.height / 2,
+            y: visible.maxY - topInset - size.height,
             width: size.width,
             height: size.height
         )
